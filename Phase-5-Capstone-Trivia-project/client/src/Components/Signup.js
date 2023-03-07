@@ -2,21 +2,22 @@ import { useState } from "react";
 import {Form, TextArea, Button, Select} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
-function LogIn({setCurrentUser, setLogin}){
+function Signup({setCurrentUser, setLogin}){
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
 
     function validateForm() {
-        return username.length > 0 && password.length > 0;
+        return email.length > 0 && password.length > 0;
     }
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            username,
+            email,
             password
         }
         fetch('/login',{
@@ -42,7 +43,17 @@ return (
     <div className="SignUp">
       <h1>Login</h1>
       <Form onSubmit={onSubmit}>
-      <Form.Group size="lg" controlId="username">
+        <Form.Group size="lg" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Field
+            autoFocus
+            name="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Field
             name="username"
@@ -65,11 +76,11 @@ return (
         </Button>
         
       </Form>
-      <Button onClick={()=>{setLogin(current => !current)}}> Dont Have an Account? Sign Up </Button>
+      <Button onClick={()=>{setLogin(current => !current)}}> Already have an account? Login </Button>
     </div>
 
   );
 
 }
 
-export default LogIn
+export default Signup
