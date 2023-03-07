@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Form, Button} from "semantic-ui-react"
+import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
 function LogIn({setCurrentUser, setLogin}){
@@ -43,8 +43,8 @@ return (
       <h1>Login</h1>
       <Form onSubmit={onSubmit}>
       <Form.Group size="lg" controlId="username">
-          <Form.Label>Username</Form.Label>
-          <Form.Field
+          <Label>Username</Label>
+          <Input
             name="username"
             type="username"
             value={username}
@@ -52,8 +52,8 @@ return (
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Field
+          <Label>Password</Label>
+          <Input
             name="password"
             type="password"
             value={password}

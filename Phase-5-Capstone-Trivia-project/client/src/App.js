@@ -34,8 +34,8 @@ function App() {
       <NavBar/>
       <div className="App">
         <Routes>  
-          <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
-          <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/>
+          {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
+          <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>
 
       </div>
