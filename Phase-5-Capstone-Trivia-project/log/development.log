@@ -4585,3 +4585,131 @@ ActionController::RoutingError (No route matches [GET] "/logo192.png"):
 Completed 200 OK in 71ms (Views: 2.7ms | ActiveRecord: 10.1ms | Allocations: 11671)
 
 
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:09:52 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 34ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 863)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:09:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:09:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:11:04 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 34ms (Views: 1.3ms | ActiveRecord: 4.8ms | Allocations: 856)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:11:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:11:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:11:10 -0800
+Processing by UsersController#show as */*
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:11:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:11:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 57ms (Views: 2.4ms | ActiveRecord: 23.4ms | Allocations: 8423)
+
+
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:12:09 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 37ms (Views: 0.8ms | ActiveRecord: 3.6ms | Allocations: 866)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:12:09 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:12:09 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:13:51 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 20ms (Views: 3.4ms | ActiveRecord: 1.7ms | Allocations: 842)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:13:51 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:13:51 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:13:58 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 35ms (Views: 1.6ms | ActiveRecord: 8.4ms | Allocations: 863)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:13:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:13:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:13:59 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 3.6ms | Allocations: 853)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:13:59 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:13:59 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 15:15:38 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 24ms (Views: 0.8ms | ActiveRecord: 3.5ms | Allocations: 840)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 15:15:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 15:15:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
