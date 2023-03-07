@@ -3,6 +3,7 @@ import { Routes, Route} from 'react-router-dom'
 import NavBar from "./Components/NavBar";
 import LogIn from './Components/Login';
 import Signup from './Components/Signup';
+import Welcome from './Components/Welcome';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <NavBar/>
       <div className="App">
         <Routes>  
+          <Route className="welcome" path="/welcome" element={ <Welcome/> } />
           {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
           <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>

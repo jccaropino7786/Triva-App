@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Signup({setCurrentUser, setLogin}){
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -16,26 +16,27 @@ function Signup({setCurrentUser, setLogin}){
 
     function onSubmit(e){
         e.preventDefault()
-    //     const user = {
-    //         email,
-    //         password
-    //     }
-    //     fetch('/login',{
-    //         method: "POST",
-    //         headers:{'Content-Type': 'application/json'},
-    //         body:JSON.stringify(user)
-    // })
-    // .then(res => {
-    //     if(res.ok){
-    //         res.json().then(user => 
-    //           { setCurrentUser(user)
-    //             // navigate("")
-    //         })
-    //     } 
-    //     //   else{
-    //     //     res.json().then( errors => setErrors(errors))
-    //     // }
-    // })
+        const user = {
+            email,
+            username,
+            password
+        }
+        fetch('/login',{
+            method: "POST",
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(user)
+    })
+    .then(res => {
+        if(res.ok){
+            res.json().then(user => 
+              { setCurrentUser(user)
+                navigate("/welcome")
+            })
+        } 
+        //   else{
+        //     res.json().then( errors => setErrors(errors))
+        // }
+    })
     
 }
 
