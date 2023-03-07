@@ -40,9 +40,9 @@ function LogIn({setCurrentUser, setLogin}){
 
 return (
     <div className="SignUp">
-      <h1>Login</h1>
+      <h2>Login</h2>
       <Form onSubmit={onSubmit}>
-      <Form.Group size="lg" controlId="username">
+      <Form.Group size="lg" id="username">
           <Label>Username</Label>
           <Input
             name="username"
@@ -51,7 +51,7 @@ return (
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
+        <Form.Group size="lg" id="password">
           <Label>Password</Label>
           <Input
             name="password"

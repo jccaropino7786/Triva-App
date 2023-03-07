@@ -28,7 +28,7 @@ h1{
 }
 
 #links {
-  background-color: whitesmoke;
+  background-color: rgb(255, 0, 230);
   border: 3px black solid;
   text-align: center;
   ;
@@ -44,7 +44,7 @@ ul.nav > li {
   padding: 10px 20px;
 }
 ul.nav > li:hover{
-  background-color: rgb(226, 43, 159);
+  background-color: rgb(43, 202, 226);
 }
 ul.nav > li > a {
   color: black;

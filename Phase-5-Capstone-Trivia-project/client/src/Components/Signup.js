@@ -43,9 +43,9 @@ function Signup({setCurrentUser, setLogin}){
 return (
     <div> 
         <div className="SignUp">
-        <h1>Sign Up</h1>
+        <h2>Sign Up</h2>
         <Form onSubmit={onSubmit}>
-            <Form.Group size="lg" controlId="email">
+            <Form.Group size="lg" id="email">
             <Label>Email</Label>
             <Input
                 autoFocus
@@ -55,7 +55,7 @@ return (
                 onChange={(e) => setEmail(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="lg" controlId="username">
+            <Form.Group size="lg" id="username">
             <Label>Username</Label>
             <Input
                 name="username"
@@ -64,7 +64,7 @@ return (
                 onChange={(e) => setUsername(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="lg" controlId="password">
+            <Form.Group size="lg" id="password">
             <Label>Password</Label>
             <Input
                 name="password"
