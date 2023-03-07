@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Form, TextArea, Button, Select} from "semantic-ui-react"
+import {Form, Button} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
 function Signup({setCurrentUser, setLogin}){
@@ -16,26 +16,26 @@ function Signup({setCurrentUser, setLogin}){
 
     function onSubmit(e){
         e.preventDefault()
-        const user = {
-            email,
-            password
-        }
-        fetch('/login',{
-            method: "POST",
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(user)
-    })
-    .then(res => {
-        if(res.ok){
-            res.json().then(user => 
-              { setCurrentUser(user)
-                // navigate("")
-            })
-        } 
-        //   else{
-        //     res.json().then( errors => setErrors(errors))
-        // }
-    })
+    //     const user = {
+    //         email,
+    //         password
+    //     }
+    //     fetch('/login',{
+    //         method: "POST",
+    //         headers:{'Content-Type': 'application/json'},
+    //         body:JSON.stringify(user)
+    // })
+    // .then(res => {
+    //     if(res.ok){
+    //         res.json().then(user => 
+    //           { setCurrentUser(user)
+    //             // navigate("")
+    //         })
+    //     } 
+    //     //   else{
+    //     //     res.json().then( errors => setErrors(errors))
+    //     // }
+    // })
     
 }
 
