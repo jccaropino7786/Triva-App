@@ -23,7 +23,7 @@ h1{
   text-align: center;
   font-size: 10vh;
   -webkit-text-stroke: 1px black;
-  text-shadow: 3px 3px #44b7dd;
+  text-shadow: .5vh .5vh #44b7dd;
   color:rgb(226, 43, 159)
 }
 
@@ -44,7 +44,7 @@ ul.nav > li {
   padding: 10px 20px;
 }
 ul.nav > li:hover{
-  background-color: lightblue;
+  background-color: rgb(226, 43, 159);
 }
 ul.nav > li > a {
   color: black;
