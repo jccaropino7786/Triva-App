@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "react-bootstrap/Form";
+import {Form, Input, TextArea, Button, Select} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
 function LogIn({setCurrentUser, setLogin}){
