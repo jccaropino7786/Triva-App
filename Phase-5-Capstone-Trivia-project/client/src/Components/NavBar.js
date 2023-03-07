@@ -15,11 +15,11 @@ function NavBar({currentUser, setCurrentUser}){
                 <li><Link to="">New Game</Link></li>
                 <li><Link to="">Profile</Link></li>
 
-                { currentUser ? (<li onClick={logout}> Logout {currentUser.email} </li>) : (
+                {/* { currentUser ? (<li onClick={logout}> Logout {currentUser.email} </li>) : (
                     <>
                     <Link to="/login">Login</Link><br/>
                     </>
-                    )}
+                    )} */}
 
             </ul>
         </div>

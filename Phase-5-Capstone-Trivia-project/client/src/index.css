@@ -22,3 +22,10 @@ ul.nav > li > a {
   text-decoration: none;
 }
 
+.App{
+  background-color: rgb(0, 133, 250);
+  background-image: url(https://img.freepik.com/free-vector/realistic-neon-lights-background_52683-59947.jpg?w=826&t=st=1678215028~exp=1678215628~hmac=e7cbda79d2cd433bcff7de5c44303be027d6585d015450802b45f6952fd4e6e3);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
