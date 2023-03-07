@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
 function LogIn({setCurrentUser, setLogin}){
@@ -62,12 +61,12 @@ return (
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <button block size="lg" type="submit" disabled={!validateForm()}>
           Login
-        </Button>
+        </button>
         
       </Form>
-      <Button onClick={()=>{setLogin(current => !current)}}> Dont Have an Account? Sign Up </Button>
+      <button onClick={()=>{setLogin(current => !current)}}> Dont Have an Account? Sign Up </button>
     </div>
 
   );
