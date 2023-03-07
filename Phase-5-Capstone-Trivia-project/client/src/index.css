@@ -16,8 +16,10 @@ body{
   border-radius: 10px;
   filter: drop-shadow(10px 10px 4px #44b7dd);
   
+}
 
-
+h1{
+  color:rgb(226, 43, 159)
 }
 
 #links {

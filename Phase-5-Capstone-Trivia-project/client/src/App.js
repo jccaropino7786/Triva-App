@@ -32,7 +32,7 @@ function App() {
   }
   return (
     <div>
-      <NavBar/>
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <div className="App">
         <Routes>  
           <Route className="welcome" path="/welcome" element={ <Welcome/> } />
