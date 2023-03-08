@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,23 @@ function Signup({setCurrentUser, setLogin}){
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+
+    function handleCallbackResponse(response){
+        console.log("encoded JWT ID token" + response.credential)
+    }
+
+    useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+           client_id: "405177722456-fpfcqtmigg7nng9dmvb16jnj6e13rse3.apps.googleusercontent.com",
+           callback: handleCallbackResponse 
+        })
+
+        google.accounts.id.renderButton(
+            document.getElementById("signInDiv"),
+            { theme: "outline", size: "large"}
+        )
+    }, [])
     
 
     function validateForm() {
@@ -79,6 +96,7 @@ return (
             
         </Form>
         <Button onClick={()=>{setLogin(current => !current)}}> Already have an account? Login </Button>
+        <div id="signInDiv"></div>
         </div>
     </div>
 

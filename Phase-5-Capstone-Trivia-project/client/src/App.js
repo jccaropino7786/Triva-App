@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const [errors, setErrors] = useState([])
 
   useEffect(() => {
