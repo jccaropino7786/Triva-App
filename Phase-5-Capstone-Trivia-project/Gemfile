@@ -8,6 +8,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Gem for Oauth
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook'
+gem 'devise'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
