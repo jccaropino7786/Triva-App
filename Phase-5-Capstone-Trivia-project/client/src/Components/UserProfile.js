@@ -17,10 +17,30 @@ function UserProfile({currentUser, setCurrentUser}){
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            email,
-            username,
-            
+            email: email,
+            username: username
         }
+        fetch(`/users/${currentUser.id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( user )
+          })
+            .then(response => {
+                console.log(response)
+              
+              if (response.status === 200) {
+                response.json().then(data => {
+                  console.log(data)
+                  setCurrentUser(user)
+                })
+              } else {
+                response.json().then(error => alert(error.errors))
+              }
+            })
+            .catch(error => alert(error));
+
 
     }
 
