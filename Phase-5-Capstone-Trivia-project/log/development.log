@@ -5653,3 +5653,122 @@ Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:10:52 -0800
   
 ActionController::RoutingError (No route matches [GET] "/logo192.png"):
   
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:24:04 -0800
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:24:04 -0800
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:04 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Completed 200 OK in 40ms (Views: 3.8ms | ActiveRecord: 25.0ms | Allocations: 8390)
+
+
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:07 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:24:07 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 112ms (Views: 2.2ms | ActiveRecord: 69.2ms | Allocations: 9135)
+
+
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:24:08 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started DELETE "/logout" for 127.0.0.1 at 2023-03-07 17:24:09 -0800
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms | Allocations: 668)
+
+
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:09 -0800
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 630)
+
+
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:12 -0800
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 626)
+
+
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:24:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:24:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:13 -0800
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:24:13 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:24:13 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-07 17:24:35 -0800
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 324)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:24:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-07 17:24:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started POST "/signup" for 127.0.0.1 at 2023-03-07 17:25:15 -0800
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"AndrewTate@redribbon.com", "username"=>"ATater", "password"=>"[FILTERED]", "user"=>{"email"=>"AndrewTate@redribbon.com", "username"=>"ATater"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (16.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "AndrewTate@redribbon.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ATater"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "AndrewTate@redribbon.com"], ["password_digest", "$2a$12$A1E8.6.H21gTaXtdxmhER.YSWwodV5rB6SR79CgvxJdNqOtryWqNC"], ["username", "ATater"], ["created_at", "2023-03-08 01:25:16.349514"], ["updated_at", "2023-03-08 01:25:16.349514"]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 201 Created in 308ms (Views: 3.4ms | ActiveRecord: 36.9ms | Allocations: 10838)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-07 17:25:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
