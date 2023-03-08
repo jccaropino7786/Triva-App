@@ -45,7 +45,7 @@ return (
         <div className="SignUp">
         <h2>Sign Up</h2>
         <Form onSubmit={onSubmit}>
-            <Form.Group size="lg" id="email">
+            <Form.Group size="large" id="email">
             <Label>Email</Label>
             <Input
                 autoFocus
@@ -55,7 +55,7 @@ return (
                 onChange={(e) => setEmail(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="lg" id="username">
+            <Form.Group size="large" id="username">
             <Label>Username</Label>
             <Input
                 name="username"
@@ -64,7 +64,7 @@ return (
                 onChange={(e) => setUsername(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="lg" controlId="password">
+            <Form.Group size="large" controlId="password">
             <Label>Password</Label>
             <Input
                 name="password"
@@ -73,7 +73,7 @@ return (
                 onChange={(e) => setPassword(e.target.value)}
             />
             </Form.Group>
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
+            <Button size="large" type="submit" disabled={!validateForm()}>
             Sign Up!!
             </Button>
             

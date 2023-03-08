@@ -42,7 +42,7 @@ return (
     <div className="SignUp">
       <h2>Login</h2>
       <Form onSubmit={onSubmit}>
-      <Form.Group size="lg" id="username">
+      <Form.Group size="large" id="username">
           <Label>Username</Label>
           <Input
             name="username"
@@ -51,7 +51,7 @@ return (
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" id="password">
+        <Form.Group size="large" id="password">
           <Label>Password</Label>
           <Input
             name="password"
@@ -60,7 +60,7 @@ return (
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button size="large" type="submit" disabled={!validateForm()}>
           Login
         </Button>
         
