@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     def create
         @userAuth = User.find_or_create_from_auth_hash(auth_hash)
         self.current_user = @userAuth
-        redirect_to '/welcome'
+        redirect_to '/'
       end
     
       protected
