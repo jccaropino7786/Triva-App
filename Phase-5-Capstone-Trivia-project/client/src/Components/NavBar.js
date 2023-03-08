@@ -13,7 +13,7 @@ function NavBar({currentUser, setCurrentUser}){
             <ul className="nav" >
                 <li><Link to="">High Scores</Link></li>
                 <li><Link to="">New Game</Link></li>
-                <li><Link to="">Profile</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
 
                 { currentUser ? (<li onClick={logout}> Logout User {currentUser.username} </li>) : (
                     <>

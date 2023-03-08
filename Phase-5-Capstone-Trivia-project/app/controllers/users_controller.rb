@@ -21,9 +21,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        session.delete :user_id
-        head :no_content
+        @user.destroy
+        render json:{}, 204
     end
+
 
     private
 
