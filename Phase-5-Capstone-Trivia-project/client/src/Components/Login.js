@@ -66,7 +66,7 @@ return (
         
       </Form>
       <Button onClick={()=>{setLogin(current => !current)}}> Dont Have an Account? Sign Up </Button>
-      <div className="fb-login-button" data-width="50" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="false"></div>
+
     </div>
 
   );
