@@ -37,7 +37,7 @@ function App() {
       <div className="App">
         <Routes>  
           <Route className="welcome" path="/welcome" element={ <Welcome/> } />
-          <Route className="profile" path="/profile" element={ <UserProfile/> } />
+          <Route className="profile" path="/profile" element={ <UserProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
           {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
           <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>

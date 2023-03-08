@@ -2,16 +2,16 @@ import { useState } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 
-function UserProfile(){
+function UserProfile({currentUser, setCurrentUser}){
 
     const navigate = useNavigate();
-    const [email, setEmail] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState(currentUser.email)
+    const [username, setUsername] = useState(currentUser.username)
+    
     
 
     function validateForm() {
-        return email.length > 0 && password.length > 0;
+        return email.length > 0 && username.length > 0;
     }
 
     function onSubmit(e){
@@ -19,14 +19,22 @@ function UserProfile(){
         const user = {
             email,
             username,
-            password
+            
         }
 
     }
 
+    const handleDelete = () => {
+        // Simple DELETE request with fetch
+        fetch(`/users/${currentUser.id}`, { method: 'DELETE' })
+        .then(() => setCurrentUser(null))
+      }
+
     return(
         <div>
+            
             <div className="SignUp">
+                <h2>Edit Profile</h2>
             <Form onSubmit={onSubmit}>
             <Form.Group size="lg" id="email">
             <Label>Email</Label>
@@ -47,19 +55,11 @@ function UserProfile(){
                 onChange={(e) => setUsername(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="lg" id="password">
-            <Label>Password</Label>
-            <Input
-                name="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            </Form.Group>
+            
             <Button block size="lg" type="submit" disabled={!validateForm()}>
             Save Changes
             </Button>
-            <Button block size="lg" type="submit" >
+            <Button block size="lg" onClick={handleDelete} >
             Delete User Forever
             </Button>
             
