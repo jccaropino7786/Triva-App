@@ -9,9 +9,14 @@ function Signup({setCurrentUser, setLogin}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    function handleCallbackResponse(response){
-        console.log("encoded JWT ID token" + response.credential)
-    }
+    const handleCallbackResponse = response => {
+        // console.log("Encoded JWT ID token: " + response.credential);
+        // var userObject = jwt_decode(response.credential);
+        // console.log(userObject)
+        // if(userObject !== {}) {
+        //   oauth(userObject, navigate)
+        // }
+      }
 
     useEffect(() => {
         /* global google */

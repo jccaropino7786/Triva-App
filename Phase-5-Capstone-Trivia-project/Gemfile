@@ -11,6 +11,9 @@ gem 'omniauth-facebook'
 gem 'devise'
 gem 'activerecord-session_store'
 
+# google Oauth
+gem 'jwt-decode'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server

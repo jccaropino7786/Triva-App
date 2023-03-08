@@ -9745,3 +9745,84 @@ Filter chain halted as :authorized_user rendered or redirected
 Completed 401 Unauthorized in 15ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1126)
 
 
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-08 15:45:14 -0800
+Started GET "/auth" for 127.0.0.1 at 2023-03-08 15:45:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 24ms (Views: 1.4ms | ActiveRecord: 1.0ms | Allocations: 1128)
+
+
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-08 15:45:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-08 15:46:15 -0800
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-08 15:46:15 -0800
+Processing by UsersController#show as */*
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mUser Load (14.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 23ms (Views: 1.3ms | ActiveRecord: 14.6ms | Allocations: 1132)
+
+
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-08 15:46:15 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-03-08 15:46:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-08 15:46:43 -0800
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-08 15:46:43 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-03-08 15:46:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-08 15:46:46 -0800
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-08 15:46:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-08 15:47:16 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1125)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-08 15:47:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/logo192.png" for 127.0.0.1 at 2023-03-08 15:47:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/logo192.png"):
+  
