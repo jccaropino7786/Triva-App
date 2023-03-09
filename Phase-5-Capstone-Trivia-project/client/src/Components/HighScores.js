@@ -1,6 +1,3 @@
-import { useNavigate } from "react-router-dom"
-import { Card } from "semantic-ui-react"
-
 
 function HighScores({user, score}) {
 
