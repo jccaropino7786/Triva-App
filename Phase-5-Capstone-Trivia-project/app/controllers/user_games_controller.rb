@@ -1,6 +1,10 @@
 class UserGamesController < ApplicationController
 
     def index
-        render json: UserGame.all, status: :ok
+        render json: UserGame.order(params[:score]).reverse, status: :ok
     end
+
+   
+
 end
+
