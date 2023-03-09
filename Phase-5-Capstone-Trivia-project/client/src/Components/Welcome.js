@@ -12,10 +12,11 @@ function Welcome() {
     return(
         <div>
             <h1>Quiz Show</h1>
-
-            <button className="pinkButton" onClick={handleClick}>
-                Start Trivia Game
-            </button>
+                <div>
+                    <button className="pinkButton" onClick={handleClick}>
+                        Start Trivia Game
+                    </button>
+                </div>
         </div>
     )
 }
