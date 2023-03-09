@@ -21,7 +21,7 @@ body{
 h1{
   margin: auto;
   text-align: center;
-  font-size: 10vh;
+  font-size: 15vh;
   -webkit-text-stroke: 1px black;
   text-shadow: .5vh .5vh #44b7dd;
   color:rgb(226, 43, 159)
@@ -65,11 +65,13 @@ button.pinkButton {
   box-shadow: .5vh .5vh #44b7dd;;
   border: 1px solid black;
   cursor:pointer;
-  
-
-  
-  
 }
+
+.main{
+  background-image: url(https://img.freepik.com/free-vector/realistic-neon-lights-background_52683-59947.jpg?w=826&t=st=1678215028~exp=1678215628~hmac=e7cbda79d2cd433bcff7de5c44303be027d6585d015450802b45f6952fd4e6e3);
+  background-size: cover !important;
+}
+
 
 
 
