@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom"
 import { Card } from "semantic-ui-react"
 
 
-function HighScores() {
+function HighScores({user, score}) {
 
     
     return(
-        <div>
+        <div className="high_score_div">
+         {user.username}.................{score}
             
         </div>
     )
