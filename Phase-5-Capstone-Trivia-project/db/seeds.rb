@@ -16,6 +16,7 @@ g1 = Game.create(name: "Trivia")
 
 aaa = User.create(username:"AAA", password:"password", email: "aaa@faketrivia.com")
 
+puts "creating usergame"
 UserGame.create(user_id:aaa, game_id:g1, score: 1)
 UserGame.create(user_id:aaa, game_id:g1, score: 2)
 UserGame.create(user_id:aaa, game_id:g1, score: 3)
