@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  resources :user_games
+  resources :games
+  resources :question_answers
+  resources :answers
+  resources :questions
   resources :users
   post "/login", to: "sessions#login"
   post "/signup", to: "users#create"
