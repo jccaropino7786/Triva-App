@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
+import jwt_decode from 'jwt-decode'
 
 function Signup({setCurrentUser, setLogin}){
 
@@ -9,13 +10,32 @@ function Signup({setCurrentUser, setLogin}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
+    const oauth = (userObject) => {
+        fetch("/oauth", {
+            method: "POST",
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(userObject)
+         })
+         .then(res => {
+            if(res.status === 201){
+                res.json().then(user => 
+                  { setCurrentUser(user)
+                    navigate("/welcome")
+                })
+            } 
+            //   else{
+            //     res.json().then( errors => setErrors(errors))
+            // }
+        })
+    }
+
     const handleCallbackResponse = response => {
-        // console.log("Encoded JWT ID token: " + response.credential);
-        // var userObject = jwt_decode(response.credential);
-        // console.log(userObject)
-        // if(userObject !== {}) {
-        //   oauth(userObject, navigate)
-        // }
+        console.log("Encoded JWT ID token: " + response.credential);
+        var userObject = jwt_decode(response.credential);
+        console.log(userObject)
+        if(userObject !== {}) {
+          oauth(userObject, navigate)
+        }
       }
 
     useEffect(() => {

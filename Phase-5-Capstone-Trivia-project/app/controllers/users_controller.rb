@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [ :update, :destroy]
-    skip_before_action :authorized_user, only: [:create]
+    skip_before_action :authorized_user, only: [:create, :oauth]
 
     def index
         render json: User.all, status: :ok
@@ -23,6 +23,21 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         head :no_content, status: 204
+    end
+
+    def oauth
+        user = User.find_or_create_by(email: params[:email]) do |u|
+            u.username = params[:name] 
+            u.email = params[:email] 
+            u.password = SecureRandom.hex(16)
+            # u.provider_id = params[:id]
+          end
+          if user.id
+            session[:user_id] = user.id
+            render json: user, status: :created
+          else
+            render json: {message: user.errors.full_messages}, status: :unprocessable_entity
+          end
     end
 
     
