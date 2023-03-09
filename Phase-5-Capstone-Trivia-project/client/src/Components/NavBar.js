@@ -11,7 +11,7 @@ function NavBar({currentUser, setCurrentUser}){
     return(
             <div id = "links">
             <ul className="nav" >
-                <li><Link to="">High Scores</Link></li>
+                <li><Link to="/high_scores">High Scores</Link></li>
                 <li><Link to="/welcome">New Game</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
 

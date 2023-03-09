@@ -11581,3 +11581,131 @@ Migrating to CreateUserGames (20230309180923)
   [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserGame Load (2.1ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games"[0m
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (1.1ms)[0m  [1m[32mINSERT INTO "games" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Trivia"], ["created_at", "2023-03-09 18:27:27.329293"], ["updated_at", "2023-03-09 18:27:27.329293"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aaa@faketrivia.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AAA"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "aaa@faketrivia.com"], ["password_digest", "$2a$12$JIvoZolKfVxB6O/KXhJopuwJjlM9jnogC3qm51vlaQ1c0wC0wfTEW"], ["username", "AAA"], ["created_at", "2023-03-09 18:27:27.575075"], ["updated_at", "2023-03-09 18:27:27.575075"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserGame Load (0.6ms)[0m  [1m[34mSELECT "user_games".* FROM "user_games"[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Destroy (0.2ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Trivia"], ["created_at", "2023-03-09 18:28:30.391326"], ["updated_at", "2023-03-09 18:28:30.391326"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aaa@faketrivia.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AAA"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "aaa@faketrivia.com"], ["password_digest", "$2a$12$jBePBYY10m8Qa8kt0C.XcO/UJqGEYCP9DBYBVyMtSDK7kqY9ufXWa"], ["username", "AAA"], ["created_at", "2023-03-09 18:28:30.635929"], ["updated_at", "2023-03-09 18:28:30.635929"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/auth" for 127.0.0.1 at 2023-03-09 10:30:41 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorized_user rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 786)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:30:43 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/login" for 127.0.0.1 at 2023-03-09 10:31:02 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"aaa", "password"=>"[FILTERED]", "session"=>{"username"=>"aaa", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 401 Unauthorized in 13ms (Views: 2.5ms | ActiveRecord: 2.7ms | Allocations: 6936)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-03-09 10:31:07 -0800
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"aaa", "password"=>"[FILTERED]", "session"=>{"username"=>"aaa", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 6ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 776)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-03-09 10:31:12 -0800
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"AAA", "password"=>"[FILTERED]", "session"=>{"username"=>"AAA", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AAA"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `login'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 201 Created in 298ms (Views: 5.8ms | ActiveRecord: 13.0ms | Allocations: 5025)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:31:13 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:31:39 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-09 10:39:27 -0800
+Processing by UsersController#show as */*
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:39:27 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 416ms (Views: 3.9ms | ActiveRecord: 267.6ms | Allocations: 13966)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2023-03-09 10:40:05 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-09 10:41:30 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 39ms (Views: 1.0ms | ActiveRecord: 1.9ms | Allocations: 877)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:41:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/auth" for 127.0.0.1 at 2023-03-09 10:41:33 -0800
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 148ms (Views: 1.3ms | ActiveRecord: 98.1ms | Allocations: 4087)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:41:33 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-09 10:41:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  

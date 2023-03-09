@@ -6,4 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Game.create(name: "Trivia")
+puts "Deleting Old Data"
+User.destroy_all
+UserGame.destroy_all
+Game.destroy_all
+
+
+g1 = Game.create(name: "Trivia")
+
+aaa = User.create(username:"AAA", password:"password", email: "aaa@faketrivia.com")
+
+UserGame.create(user_id:aaa, game_id:g1, score: 1)
+UserGame.create(user_id:aaa, game_id:g1, score: 2)
+UserGame.create(user_id:aaa, game_id:g1, score: 3)
+UserGame.create(user_id:aaa, game_id:g1, score: 4)
+UserGame.create(user_id:aaa, game_id:g1, score: 5)
+UserGame.create(user_id:aaa, game_id:g1, score: 6)
+UserGame.create(user_id:aaa, game_id:g1, score: 7)
+UserGame.create(user_id:aaa, game_id:g1, score: 8)
+UserGame.create(user_id:aaa, game_id:g1, score: 9)
+UserGame.create(user_id:aaa, game_id:g1, score: 10)
+
+puts "🌱🌱🌱Data Seeded🌱🌱🌱"
