@@ -106,7 +106,7 @@ return (
                 onChange={(e) => setUsername(e.target.value)}
             />
             </Form.Group>
-            <Form.Group size="large" controlId="password">
+            <Form.Group size="large" id="password">
             <Label>Password</Label>
             <Input
                 name="password"
