@@ -6,6 +6,7 @@ import Signup from './Components/Signup';
 import Welcome from './Components/Welcome';
 import UserProfile from './Components/UserProfile';
 import HighScoreContainer from './Components/HighScoreContainer';
+import TriviaGame from './Components/TriviaGame';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route className="welcome" path="/welcome" element={ <Welcome/> } />
           <Route className="profile" path="/profile" element={ <UserProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
           <Route className="high_score" path="/high_scores" element={ <HighScoreContainer/> } />
+          <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame/> } />
           {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
           <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>
