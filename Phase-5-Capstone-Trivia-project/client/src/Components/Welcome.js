@@ -16,6 +16,7 @@ function Welcome() {
                     <button className="pinkButton" onClick={handleClick}>
                         Start Trivia Game
                     </button>
+                    <h1>Your High Scores</h1>
                 </div>
         </div>
     )
