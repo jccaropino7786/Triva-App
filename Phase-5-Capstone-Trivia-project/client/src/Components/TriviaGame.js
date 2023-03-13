@@ -10,8 +10,9 @@ const TriviaGame = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const resp = await fetch("https://opentdb.com/api.php?amount=20")
+            const resp = await fetch("https://opentdb.com/api.php?amount=1&type=multiple")
             const questionsList = await resp.json()
+            console.log(questionsList)
             setQuestions(questionsList)
           } catch (error) {
             alert(error)
@@ -54,10 +55,10 @@ const TriviaGame = () => {
                <h2>
                Question: {currentQuestion + 1} out of {questions.length}
                </h2>
-               <h3 className="question-text">{questions[currentQuestion].text}</h3>
+               {/* <h3 className="question-text">{questions[currentQuestion].question}</h3> */}
      
                
-               <ul classname="quiz-ul">
+               {/* <ul classname="quiz-ul">
                {questions[currentQuestion].options.map((option) => {
                     return (
                         <li className="quiz-li"
@@ -68,7 +69,7 @@ const TriviaGame = () => {
                         </li>
                 );
                     })} 
-               </ul>
+               </ul> */}
                
              </div>
              )}
