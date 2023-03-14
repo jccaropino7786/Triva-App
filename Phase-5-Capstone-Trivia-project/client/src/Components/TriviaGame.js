@@ -14,7 +14,6 @@ const TriviaGame = () => {
             const resp = await fetch("https://the-trivia-api.com/api/questions?limit=3&categories=science,history'")
             const questionsList = await resp.json()
             console.log(questionsList)
-            // setQuestions(questionsList)
             setQuestions(questionsList)
           } catch (error) {
             alert(error)
@@ -23,9 +22,10 @@ const TriviaGame = () => {
         fetchData()  
       },[])
 
-   
-    //   console.log(questions)
       console.log(questions)
+
+    const answers = [questions[currentQuestion]['correctAnswer']] + questions[currentQuestion]['incorrectAnswers']
+    
 
       const optionClicked = (isCorrect) => {
         // Increment the score
@@ -62,8 +62,9 @@ const TriviaGame = () => {
               <h3 className="question-text">{questions[currentQuestion].question}</h3>
      
                {/* I need to create code that brings the correct and incorrect answers together */}
-               {/* <ul classname="quiz-ul">
-               {questions[currentQuestion].options.map((option) => {
+               <ul classname="quiz-ul">
+               
+               {answers.map((option) => {
                     return (
                         <li className="quiz-li"
                             key={option.id}
@@ -73,7 +74,7 @@ const TriviaGame = () => {
                         </li>
                 );
                     })}  
-               </ul> */}
+               </ul>
                
              </div>
              )}
