@@ -34,6 +34,7 @@ function UserProfile({currentUser, setCurrentUser}){
                 response.json().then(data => {
                   console.log(data)
                   setCurrentUser(user)
+                  navigate("/welcome")
                 })
               } else {
                 response.json().then(error => alert(error.errors))
