@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const TriviaGame = () => {
 
     const [showResults, setShowResults] = useState(false);
-    const [currentQuestion, setCurrentQuestion] = useState([0]);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([])
     
@@ -11,10 +11,11 @@ const TriviaGame = () => {
         const fetchData = async () => {
           try {
             // const resp = await fetch("https://opentdb.com/api.php?amount=2&type=multiple")
-            const resp = await fetch("https://the-trivia-api.com/api/questions?limit=20&categories=science,history'")
+            const resp = await fetch("https://the-trivia-api.com/api/questions?limit=3&categories=science,history'")
             const questionsList = await resp.json()
             console.log(questionsList)
-            // setQuestions(questionsList.map())
+            // setQuestions(questionsList)
+            setQuestions(questionsList)
           } catch (error) {
             alert(error)
           }
@@ -22,10 +23,9 @@ const TriviaGame = () => {
         fetchData()  
       },[])
 
-      
    
+    //   console.log(questions)
       console.log(questions)
-      console.log(currentQuestion)
 
       const optionClicked = (isCorrect) => {
         // Increment the score
@@ -59,7 +59,7 @@ const TriviaGame = () => {
                <h2>
                Question: {currentQuestion + 1} out of {questions.length}
                </h2>
-              <h3 className="question-text">{questions[currentQuestion]}</h3>
+              <h3 className="question-text">{questions[currentQuestion].question}</h3>
      
                {/* I need to create code that brings the correct and incorrect answers together */}
                {/* <ul classname="quiz-ul">
