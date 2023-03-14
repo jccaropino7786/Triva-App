@@ -5,6 +5,8 @@ function Welcome() {
 
     const navigate = useNavigate()
 
+    
+
     const handleClick = ()=>{
         navigate("/trivia_game")
     }

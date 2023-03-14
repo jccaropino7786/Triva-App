@@ -3,38 +3,29 @@ import React, { useState, useEffect } from 'react';
 const TriviaGame = () => {
 
     const [showResults, setShowResults] = useState(false);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState([0]);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([])
     
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const resp = await fetch("https://opentdb.com/api.php?amount=10&type=multiple")
+            // const resp = await fetch("https://opentdb.com/api.php?amount=2&type=multiple")
+            const resp = await fetch("https://the-trivia-api.com/api/questions?limit=20&categories=science,history'")
             const questionsList = await resp.json()
-            const mappedQuestions = questionsList.map(question => {
-                return{
-                    ...question
-                }
-            })
-            setQuestions(mappedQuestions)
+            console.log(questionsList)
+            // setQuestions(questionsList.map())
           } catch (error) {
             alert(error)
           }
          }
         fetchData()  
       },[])
-      
-    //    const mappedQuestions = questions.map(question => {
-    //         return{
-    //             ...question
-    //         }
-    //     })
-    //   console.log(mappedQuestions)
 
       
-
-      
+   
+      console.log(questions)
+      console.log(currentQuestion)
 
       const optionClicked = (isCorrect) => {
         // Increment the score
@@ -68,9 +59,9 @@ const TriviaGame = () => {
                <h2>
                Question: {currentQuestion + 1} out of {questions.length}
                </h2>
-              <h3 className="question-text">{questions[currentQuestion].question}</h3>
+              <h3 className="question-text">{questions[currentQuestion]}</h3>
      
-               
+               {/* I need to create code that brings the correct and incorrect answers together */}
                {/* <ul classname="quiz-ul">
                {questions[currentQuestion].options.map((option) => {
                     return (
