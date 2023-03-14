@@ -12,14 +12,15 @@ const TriviaGame = () => {
           try {
             const resp = await fetch("https://opentdb.com/api.php?amount=1&type=multiple")
             const questionsList = await resp.json()
-            console.log(questionsList)
-            setQuestions(questionsList)
+            setQuestions(questionsList.results)
           } catch (error) {
             alert(error)
           }
          }
         fetchData()  
       },[])
+
+      const questionAnswers = `${questions.correct_answer}` + `${questions.incorrect_answers}`
 
       
 
