@@ -9,18 +9,14 @@ function Welcome({currentUser}) {
 
     const handleClick = ()=>{
 
-        const newGame = {
-            user_id: currentUser.id,
-            game_id: "4",
-            score: 0
-        };
+        
         
         fetch("/user_games", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newGame),
+            body: JSON.stringify(),
         })
         .then(response => 
             response.json())

@@ -20,6 +20,7 @@ function UserProfile({currentUser, setCurrentUser}){
             email: email,
             username: username
         }
+        debugger
         fetch(`/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
@@ -33,9 +34,9 @@ function UserProfile({currentUser, setCurrentUser}){
               if (response.status === 200) {
                 response.json().then(data => {
                   console.log(data)
-                  setCurrentUser(user)
-                  navigate("/welcome")
+                  setCurrentUser(data)
                 })
+                .then ( () => navigate("/welcome"))
               } else {
                 response.json().then(error => alert(error.errors))
               }

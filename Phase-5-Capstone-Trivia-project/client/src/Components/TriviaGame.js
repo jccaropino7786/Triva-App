@@ -6,6 +6,7 @@ const TriviaGame = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([])
+    const [answer, setAnswer] = useState("")
     
     useEffect(() => {
         const fetchData = async () => {
@@ -27,19 +28,23 @@ const TriviaGame = () => {
     // const answers = [questions[currentQuestion]['correctAnswer']] + questions[currentQuestion]['incorrectAnswers']
     
 
-      const optionClicked = (isCorrect) => {
+      const answerSubmitted = (e) => {
+        e.preventDefault()
         // Increment the score
-        if (isCorrect) {
-          setScore(score + 1);
+        if (answer.toLowerCase() === questions[currentQuestion].correctAnswer.toLowerCase()) {
+          setAnswer("")  
+          setScore(currentScore => currentScore + 1);
         }
     
         if (currentQuestion + 1 < questions.length) {
-          setCurrentQuestion(currentQuestion + 1);
+          setCurrentQuestion(thisQuestion => thisQuestion + 1);
         } else {
           setShowResults(true);
         }
       };
-  
+
+
+      if (questions.length === 0) return <h1>Loading...</h1>
     return (
         <div>
            <h1>Trivia Game</h1>
@@ -47,10 +52,9 @@ const TriviaGame = () => {
 
           {showResults? (
             <div className="final-results">
-               <h1>Final Results</h1>
+               <h2>Final Score</h2>
                <h2>
-               {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
+               {score} out of {questions.length} correct 
                </h2>
              </div>
              ) : (
@@ -59,8 +63,11 @@ const TriviaGame = () => {
                <h2>
                Question: {currentQuestion + 1} out of {questions.length}
                </h2>
-              {/* <h3 className="question-text">{questions[currentQuestion].question}</h3> */}
-     
+              <h3 className="question-text">{questions[currentQuestion].question}</h3>
+                    <form onSubmit={answerSubmitted}>
+                        <input value={answer} onChange={(e)=>setAnswer(e.target.value)} placeholder='Answer...'></input>
+                        <button>Final Answer</button>
+                    </form>
                {/* I need to create code that brings the correct and incorrect answers together */}
                {/* <ul classname="quiz-ul">
                

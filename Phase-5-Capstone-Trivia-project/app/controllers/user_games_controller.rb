@@ -5,14 +5,14 @@ class UserGamesController < ApplicationController
     end
 
     def create
-        new_user_game = UserGame.create!(user_game_params)
+        new_user_game = @user.user_games.create!(score: 0, game_id: 4)
         render json: new_user_game, status: :created
     end
 
     private
 
     def user_game_params
-        params.permit(:user_id, :game_id, :score)
+        params.permit( :game_id, :score)
     end
    
 

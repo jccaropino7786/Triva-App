@@ -28,6 +28,9 @@ function App() {
     if (!currentUser)
     {fetchData() } 
   },[currentUser])
+
+
+  
   
 
   if(!currentUser) {

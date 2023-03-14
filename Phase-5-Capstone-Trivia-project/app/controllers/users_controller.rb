@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        render json: @user.update!(user_params), status: :ok
+        @user.update!(user_params)
+        render json: @user, status: :ok
     end
 
     def destroy
