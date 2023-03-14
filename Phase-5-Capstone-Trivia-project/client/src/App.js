@@ -38,7 +38,7 @@ function App() {
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <div className="App">
         <Routes>  
-          <Route className="welcome" path="/welcome" element={ <Welcome/> } />
+          <Route className="welcome" path="/welcome" element={ <Welcome currentUser={currentUser}/> } />
           <Route className="profile" path="/profile" element={ <UserProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
           <Route className="high_score" path="/high_scores" element={ <HighScoreContainer/> } />
           <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame/> } />

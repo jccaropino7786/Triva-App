@@ -24,7 +24,7 @@ const TriviaGame = () => {
 
       console.log(questions)
 
-    const answers = [questions[currentQuestion]['correctAnswer']] + questions[currentQuestion]['incorrectAnswers']
+    // const answers = [questions[currentQuestion]['correctAnswer']] + questions[currentQuestion]['incorrectAnswers']
     
 
       const optionClicked = (isCorrect) => {
@@ -59,10 +59,10 @@ const TriviaGame = () => {
                <h2>
                Question: {currentQuestion + 1} out of {questions.length}
                </h2>
-              <h3 className="question-text">{questions[currentQuestion].question}</h3>
+              {/* <h3 className="question-text">{questions[currentQuestion].question}</h3> */}
      
                {/* I need to create code that brings the correct and incorrect answers together */}
-               <ul classname="quiz-ul">
+               {/* <ul classname="quiz-ul">
                
                {answers.map((option) => {
                     return (
@@ -74,7 +74,7 @@ const TriviaGame = () => {
                         </li>
                 );
                     })}  
-               </ul>
+               </ul> */}
                
              </div>
              )}
