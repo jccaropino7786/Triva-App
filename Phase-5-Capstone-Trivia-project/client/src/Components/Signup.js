@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 import jwt_decode from 'jwt-decode'
+import { UserContext } from "../context/UserContext";
 
 function Signup({setCurrentUser, setLogin}){
 
@@ -10,29 +11,31 @@ function Signup({setCurrentUser, setLogin}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const oauth = (userObject) => {
-        fetch("/oauth", {
-            method: "POST",
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(userObject)
-         })
-         .then(res => {
-            if(res.status === 201){
-                res.json().then(setCurrentUser())
-                .then(()=>navigate("/welcome"))
-            } 
-            //   else{
-            //     res.json().then( errors => setErrors(errors))
-            // }
-        })
-    }
+    const {oauth} = useContext(UserContext)
+    // const oauth = (userObject) => {
+    //     fetch("/oauth", {
+    //         method: "POST",
+    //         headers:{'Content-Type': 'application/json'},
+    //         body:JSON.stringify(userObject)
+    //      })
+    //      .then(res => {
+    //         if(res.status === 201){
+    //             res.json().then(setCurrentUser())
+    //             .then(()=>navigate("/welcome"))
+    //         } 
+    //         //   else{
+    //         //     res.json().then( errors => setErrors(errors))
+    //         // }
+    //     })
+    // }
 
     const handleCallbackResponse = response => {
-        console.log("Encoded JWT ID token: " + response.credential);
+        // console.log("Encoded JWT ID token: " + response.credential);
         var userObject = jwt_decode(response.credential);
         // console.log(userObject)
         if(userObject !== {}) {
-          oauth(userObject, navigate)
+          oauth(userObject)
+        //   .then(()=>navigate('/welcome'))
         }
       }
 

@@ -7,47 +7,33 @@ import Welcome from './Components/Welcome';
 import UserProfile from './Components/UserProfile';
 import HighScoreContainer from './Components/HighScoreContainer';
 import TriviaGame from './Components/TriviaGame';
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from "../context/UserContext";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  // const [currentUser, setCurrentUser] = useState(null)
   const [login, setLogin] = useState(false)
   const [currentUserGame, setCurrentUserGame] = useState(null)
+
+  const {user} = useContext(UserContext)
   // const [errors, setErrors] = useState([])
 
-  useEffect(() => {
-    const fetchData = () =>
-    fetch('/auth')
-    .then(res => {
-      if(res.ok){
-        res.json().then(user => setCurrentUser(user))
-      } 
-      // else {
-      //   const error = res.json().then(error = setError(error))
-      // }
-    })
-    if (!currentUser)
-    {fetchData() } 
-  },[currentUser])
-
-
-  
   
 
-  if(!currentUser) {
+  if(!user) {
     return login ? <LogIn setLogin={setLogin} 
     // errors={errors} setErrors={setErrors} 
-    setCurrentUser={setCurrentUser} /> : <Signup setLogin={setLogin} setCurrentUser={setCurrentUser} /> 
+     /> : <Signup setLogin={setLogin}  /> 
   }
   return (
     <div>
-      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <NavBar />
       <div className="App">
         <Routes>  
-          <Route className="welcome" path="/welcome" element={ <Welcome currentUser={currentUser} setCurrentUser={setCurrentUser} setCurrentUserGame={setCurrentUserGame}/> } />
-          <Route className="profile" path="/profile" element={ <UserProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
+          <Route className="welcome" path="/welcome" element={ <Welcome   setCurrentUserGame={setCurrentUserGame}/> } />
+          <Route className="profile" path="/profile" element={ <UserProfile  /> } />
           <Route className="high_score" path="/high_scores" element={ <HighScoreContainer/> } />
-          <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame setCurrentUserGame={setCurrentUserGame} currentUserGame={currentUserGame} currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
+          <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame setCurrentUserGame={setCurrentUserGame} currentUserGame={currentUserGame} /> } />
           {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
           <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>

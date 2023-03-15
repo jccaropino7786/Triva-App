@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ErrorContextProvider } from './context/ErrorContext';
+import { UserProvider } from './context/UserContext'
 
 ReactDOM.render(
-    <ErrorContextProvider>
       <BrowserRouter>
-        {/* <React.StrictMode> */}
-          <App className='main' />
-        {/* </React.StrictMode> */}
-      </BrowserRouter>
-    </ErrorContextProvider>,
+        <UserProvider>
+          {/* <React.StrictMode> */}
+            <App className='main' />
+          {/* </React.StrictMode> */}
+        </UserProvider>
+      </BrowserRouter>,
   document.getElementById('root')
 );
 
