@@ -24,6 +24,13 @@ function UserProvider({ children }) {
     {fetchData() } 
   },[user])
 
+  const logout = () => {
+        
+    fetch('/logout', { method: 'DELETE' })
+        .then(() => setUser(null))
+}
+
+
   const oauth = (userObject) => {
     fetch("/oauth", {
         method: "POST",
@@ -46,7 +53,7 @@ function UserProvider({ children }) {
 
 
   return (
-    <UserContext.Provider value={{ user, setUser, oauth }}>
+    <UserContext.Provider value={{ user, setUser, oauth, logout }}>
       {children}
     </UserContext.Provider>
   );

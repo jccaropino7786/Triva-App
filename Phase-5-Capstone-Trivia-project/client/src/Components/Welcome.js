@@ -1,20 +1,20 @@
 import YourUserGames from "./YourUserGames"
 import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { UserContext } from "../context/UserContext"
 
 
-function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
+function Welcome({setCurrentUserGame}) {
 
-    // const [userGame, setUserGame] = useState()
+    const {user, setUser} = useContext(UserContext)
     
     //this map doesnt work when I set state on line 34
-    const mappedGames = currentUser?.user_games?.map((game) => (
+    const mappedGames = user?.user_games?.map((game) => (
         <YourUserGames
         key={game.id}
         gameID={game.id}
         name={game.name}
         score={game.score}
-        setCurrentUser={setCurrentUser}
         ></YourUserGames>
       ))
     
@@ -31,7 +31,7 @@ function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
             response.json())
         .then((newData) => {
         // console.log(newData))
-        setCurrentUser(currentUser => ({...currentUser, user_games: [...currentUser.user_games, newData] }))
+        setUser(currentUser => ({...currentUser, user_games: [...currentUser.user_games, newData] }))
         setCurrentUserGame(newData)
     })
 

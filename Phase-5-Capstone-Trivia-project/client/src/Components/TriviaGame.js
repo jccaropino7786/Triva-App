@@ -9,6 +9,8 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame, setCurrentUse
     const [questions, setQuestions] = useState([])
     const [answer, setAnswer] = useState("")
 
+    
+
     const navigate = useNavigate()
 
     

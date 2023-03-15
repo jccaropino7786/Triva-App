@@ -1,9 +1,12 @@
-function YourUserGames({ name, score, gameID, setCurrentUser }) {
+import { useContext } from "react"
+import { UserContext } from "../context/UserContext"
+function YourUserGames({ score, gameID}) {
 
+    const {setUser} = useContext(UserContext)
 
     const handleDelete = () => {
         fetch(`/user_games/${gameID}`, { method: 'DELETE' })
-        .then(() => setCurrentUser())
+        .then(() => setUser())
                 // console.log(current => current.map(game => game.id !== gameID))))
     }
     

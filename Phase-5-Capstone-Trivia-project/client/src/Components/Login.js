@@ -1,15 +1,15 @@
 import { useState, useContext } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
-import { ErrorContext } from "../context/ErrorContext";
+import { UserContext } from "../context/UserContext";
 
-function LogIn({setCurrentUser, setLogin}){
+function LogIn({setLogin}){
 
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
-    const {addError} = useContext(ErrorContext)
+    const {setUser} = useContext(UserContext)
 
     function validateForm() {
         return username.length > 0 && password.length > 0;
@@ -29,12 +29,12 @@ function LogIn({setCurrentUser, setLogin}){
     .then(res => {
         if(res.ok){
             res.json().then(user => 
-              { setCurrentUser(user)
+              { setUser(user)
                 navigate("/welcome")
             })
         } 
           else{
-            res.json().then( errors => addError(errors))
+            res.json().then( errors => (errors))
             
         }
     })

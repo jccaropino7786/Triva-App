@@ -4,30 +4,15 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from 'jwt-decode'
 import { UserContext } from "../context/UserContext";
 
-function Signup({setCurrentUser, setLogin}){
+function Signup({setLogin}){
 
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const {oauth} = useContext(UserContext)
-    // const oauth = (userObject) => {
-    //     fetch("/oauth", {
-    //         method: "POST",
-    //         headers:{'Content-Type': 'application/json'},
-    //         body:JSON.stringify(userObject)
-    //      })
-    //      .then(res => {
-    //         if(res.status === 201){
-    //             res.json().then(setCurrentUser())
-    //             .then(()=>navigate("/welcome"))
-    //         } 
-    //         //   else{
-    //         //     res.json().then( errors => setErrors(errors))
-    //         // }
-    //     })
-    // }
+    const {oauth, setUser} = useContext(UserContext)
+    
 
     const handleCallbackResponse = response => {
         // console.log("Encoded JWT ID token: " + response.credential);
@@ -72,7 +57,7 @@ function Signup({setCurrentUser, setLogin}){
     .then(res => {
         if(res.ok){
             res.json().then(user => 
-              { setCurrentUser(user)
+              { setUser(user)
                 navigate("/welcome")
             })
         } 

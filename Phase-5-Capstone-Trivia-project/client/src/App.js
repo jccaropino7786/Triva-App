@@ -10,6 +10,7 @@ import TriviaGame from './Components/TriviaGame';
 import { useState, useContext } from 'react';
 import { UserContext } from "../context/UserContext";
 
+
 function App() {
   // const [currentUser, setCurrentUser] = useState(null)
   const [login, setLogin] = useState(false)

@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
-function UserProfile({currentUser, setCurrentUser}){
+function UserProfile(){
+
+  const {user, setUser} = useContext(UserContext)
 
     const navigate = useNavigate();
-    const [email, setEmail] = useState(currentUser.email)
-    const [username, setUsername] = useState(currentUser.username)
+    const [email, setEmail] = useState(user.email)
+    const [username, setUsername] = useState(user.username)
     
     
 
@@ -21,7 +24,7 @@ function UserProfile({currentUser, setCurrentUser}){
             username: username
         }
         // debugger
-        fetch(`/users/${currentUser.id}`, {
+        fetch(`/users/${user.id}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json'
@@ -34,7 +37,7 @@ function UserProfile({currentUser, setCurrentUser}){
               if (response.status === 200) {
                 response.json().then(data => {
                   console.log(data)
-                  setCurrentUser(data)
+                  setUser(data)
                 })
                 .then ( () => navigate("/welcome"))
               } else {
@@ -48,8 +51,8 @@ function UserProfile({currentUser, setCurrentUser}){
 
     const handleDelete = () => {
         // Simple DELETE request with fetch
-        fetch(`/users/${currentUser.id}`, { method: 'DELETE' })
-        .then(() => setCurrentUser(null))
+        fetch(`/users/${user.id}`, { method: 'DELETE' })
+        .then(() => setUser(null))
       }
 
     return(

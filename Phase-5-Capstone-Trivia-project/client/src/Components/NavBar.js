@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 
-function NavBar({currentUser, setCurrentUser}){
+function NavBar(){
 
-    const logout = () => {
-        
-        fetch('/logout', { method: 'DELETE' })
-            .then(() => setCurrentUser(null))
-    }
+    const {user, logout} = useContext(UserContext)
 
+    
     return(
             <div id = "links">
             <ul className="nav" >
@@ -15,7 +14,7 @@ function NavBar({currentUser, setCurrentUser}){
                 <li><Link to="/welcome">New Game</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
 
-                { currentUser ? (<li onClick={logout}> Logout User {currentUser.username} </li>) : (
+                { user ? (<li onClick={logout}> Logout User {user.username} </li>) : (
                     <>
                     <Link to="/login">Login</Link><br/>
                     </>
