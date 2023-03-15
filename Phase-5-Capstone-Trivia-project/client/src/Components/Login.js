@@ -3,7 +3,7 @@ import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
 import { ErrorContext } from "../context/ErrorContext";
 
-function LogIn({setCurrentUser, setLogin, errors, setErrors}){
+function LogIn({setCurrentUser, setLogin}){
 
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
@@ -34,8 +34,8 @@ function LogIn({setCurrentUser, setLogin, errors, setErrors}){
             })
         } 
           else{
-            res.json().then( errors => setErrors(errors))
-            .then(addError)
+            res.json().then( errors => addError(errors))
+            
         }
     })
     

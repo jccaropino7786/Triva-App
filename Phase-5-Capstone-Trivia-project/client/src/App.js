@@ -13,7 +13,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [login, setLogin] = useState(false)
   const [currentUserGame, setCurrentUserGame] = useState(null)
-  const [errors, setErrors] = useState([])
+  // const [errors, setErrors] = useState([])
 
   useEffect(() => {
     const fetchData = () =>
@@ -35,7 +35,9 @@ function App() {
   
 
   if(!currentUser) {
-    return login ? <LogIn setLogin={setLogin} errors={errors} setErrors={setErrors} setCurrentUser={setCurrentUser} /> : <Signup setLogin={setLogin} setCurrentUser={setCurrentUser} /> 
+    return login ? <LogIn setLogin={setLogin} 
+    // errors={errors} setErrors={setErrors} 
+    setCurrentUser={setCurrentUser} /> : <Signup setLogin={setLogin} setCurrentUser={setCurrentUser} /> 
   }
   return (
     <div>

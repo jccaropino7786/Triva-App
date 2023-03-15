@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
-console.log(currentUserGame)
+
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -12,43 +12,60 @@ console.log(currentUserGame)
     
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            // const resp = await fetch("https://opentdb.com/api.php?amount=2&type=multiple")
-            const resp = await fetch("https://the-trivia-api.com/api/questions?limit=3&categories=science,history'")
-            const questionsList = await resp.json()
-            // console.log(questionsList)
-            setQuestions(questionsList)
-          } catch (error) {
-            alert(error)
+            try {
+              const resp = await fetch("https://the-trivia-api.com/api/questions?limit=3&categories=science,history'")
+              const questionsList = await resp.json()
+              setQuestions(questionsList)
+              
+              // create question, answer, and question-answer objects for each question
+              for (const question of questionsList) {
+                try {
+                  const questionResponse = await fetch('/questions', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question: question.question }),
+                  })
+                  const questionData = await questionResponse.json()
+                  
+                  const answerResponse = await fetch('/answers', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ answer: question.answer }),
+                  })
+                  const answerData = await answerResponse.json()
+                  
+                  const questionAnswerResponse = await fetch('/question_answers', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                      question_id: questionData.id,
+                      answer_id: answerData.id,
+                      game_id: sessionStorage.getItem('game_id'),
+                    }),
+                  })
+                  const questionAnswerData = await questionAnswerResponse.json()
+                  
+                  console.log(questionData, answerData, questionAnswerData)
+                } catch (error) {
+                  alert(error)
+                }
+              }
+            } catch (error) {
+              alert(error)
+            }
           }
-         }
         fetchData()
         //for each question create question.question
         //create question
-        // fetch("/questions", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(),
-        // })
         //create answer for each create question.answer
-        // fetch("/answers", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(),
-        // })
         //create question answer for each question for the current user attach the question and answer that was asked to the user
-        // fetch("/question_answer", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(),
-        // })
-
+        
       },[])
 
       console.log(questions)
@@ -63,7 +80,7 @@ console.log(currentUserGame)
           setScore(currentScore => currentScore + 1);
         }
 
-        fetch(`/user_games/${currentUserGame.id}`, {
+        fetch(`/user_games/${currentUser.user_game.id}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json'
