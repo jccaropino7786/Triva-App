@@ -1,4 +1,5 @@
 class UserGamesController < ApplicationController
+    before_action :find_user_game, only: [:destroy,:update]
 
     def index
         render json: UserGame.order(score: :desc), status: :ok
@@ -9,10 +10,24 @@ class UserGamesController < ApplicationController
         render json: new_user_game, status: :created
     end
 
+    def update
+        @user_game.update!(:score)
+        render json: @user_game
+    end
+
+    def destroy
+        @user_game.destroy
+        render json: {}, status: 204
+    end
+
     private
 
     def user_game_params
         params.permit( :game_id, :score)
+    end
+
+    def find_user_game
+        @user_game = UserGame.find(params[:id])
     end
    
 
