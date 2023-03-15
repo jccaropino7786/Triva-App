@@ -22,18 +22,20 @@ function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
 
     const handleClick = ()=>{
 
-        
-        
         fetch("/user_games", {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(),
         })
         .then(response => 
+            // console.log(response))
             response.json())
-        .then((newData) => setCurrentUser(currentUser => [newData, ...currentUser.user_games]))
+        .then((newData) => 
+        // console.log(newData))
+        setCurrentUser(currentUser => [newData, ...currentUser.user_games]))
         .then((newData)=>setCurrentUserGame(newData))
         .then(navigate("/trivia_game", {replace:true}))
     }

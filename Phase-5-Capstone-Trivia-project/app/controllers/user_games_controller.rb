@@ -1,5 +1,6 @@
 class UserGamesController < ApplicationController
     before_action :find_user_game, only: [:destroy,:update]
+    before_action :find_user, only: [ :show, :create]
 
     def index
         render json: UserGame.order(score: :desc), status: :ok
