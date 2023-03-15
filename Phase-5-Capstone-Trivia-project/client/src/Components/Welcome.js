@@ -1,3 +1,4 @@
+import YourUserGames from "./YourUserGames"
 import { useNavigate } from "react-router-dom"
 
 
@@ -32,6 +33,7 @@ function Welcome({currentUser}) {
                         Start Trivia Game
                     </button>
                     <h2 className="score2">Your High Scores</h2>
+                    <YourUserGames/> 
                 </div>
         </div>
     )
