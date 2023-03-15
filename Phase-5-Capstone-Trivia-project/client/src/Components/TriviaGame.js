@@ -31,45 +31,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame, setCurrentUse
               const questionData = await questionResponse.json()
               
               setQuestions(questionData)
-              // create question, answer, and question-answer objects for each question
-              // for (const question of questionsList) {
-                //   try {
-              //     const questionResponse = await fetch('/questions', {
-              //       method: 'POST',
-              //       headers: {
-              //         'Content-Type': 'application/json',
-              //       },
-              //       body: JSON.stringify({ question_text: question.question }),
-              //     })
-              //     const questionData = await questionResponse.json()
-                  
-              //     const answerResponse = await fetch('/answers', {
-              //       method: 'POST',
-              //       headers: {
-              //         'Content-Type': 'application/json',
-              //       },
-              //       body: JSON.stringify({ answer_text: question.correctAnswer }),
-              //     })
-              //     const answerData = await answerResponse.json()
-                  
-              //     const questionAnswerResponse = await fetch('/question_answers', {
-              //       method: 'POST',
-              //       headers: {
-              //         'Content-Type': 'application/json',
-              //       },
-              //       body: JSON.stringify({ 
-              //         question_id: questionData.id,
-              //         answer_id: answerData.id,
-              //         user_game_id: sessionStorage.getItem('user_game.id'),
-              //       }),
-              //     })
-              //     const questionAnswerData = await questionAnswerResponse.json()
-                  
-              //     console.log(questionData, answerData, questionAnswerData)
-              //   } catch (error) {
-              //     alert(error)
-          //       }
-          //     }
+              
             } catch (error) {
               alert(error)
             }

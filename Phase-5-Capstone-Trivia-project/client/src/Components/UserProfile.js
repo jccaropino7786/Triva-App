@@ -5,9 +5,10 @@ import { UserContext } from "../context/UserContext";
 
 function UserProfile(){
 
-  const {user, setUser} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
 
     const navigate = useNavigate();
+
     const [email, setEmail] = useState(user.email)
     const [username, setUsername] = useState(user.username)
     

@@ -12,18 +12,16 @@ import { UserContext } from "../src/context/UserContext";
 
 
 function App() {
-  // const [currentUser, setCurrentUser] = useState(null)
+ 
   const [login, setLogin] = useState(false)
   const [currentUserGame, setCurrentUserGame] = useState(null)
 
   const {user} = useContext(UserContext)
-  // const [errors, setErrors] = useState([])
-
   
 
   if(!user) {
     return login ? <LogIn setLogin={setLogin} 
-    // errors={errors} setErrors={setErrors} 
+    
      /> : <Signup setLogin={setLogin}  /> 
   }
   return (

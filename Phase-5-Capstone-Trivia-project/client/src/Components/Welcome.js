@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from 'react'
 import { UserContext } from "../context/UserContext"
 
 
-function Welcome({setCurrentUserGame}) {
+function Welcome({  setCurrentUserGame}) {
 
     const {user, setUser} = useContext(UserContext)
     
@@ -15,6 +15,7 @@ function Welcome({setCurrentUserGame}) {
         gameID={game.id}
         name={game.name}
         score={game.score}
+        setCurrentUser={setUser}
         ></YourUserGames>
       ))
     
