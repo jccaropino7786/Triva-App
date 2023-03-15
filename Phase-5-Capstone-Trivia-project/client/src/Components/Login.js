@@ -1,8 +1,9 @@
 import { useState } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
+// import { ErrorContext } from "../context/ErrorContext";
 
-function LogIn({setCurrentUser, setLogin}){
+function LogIn({setCurrentUser, setLogin, errors, setErrors}){
 
     const navigate = useNavigate();
     const [username, setUsername] = useState("")
@@ -31,15 +32,17 @@ function LogIn({setCurrentUser, setLogin}){
                 navigate("/welcome")
             })
         } 
-        //   else{
-        //     res.json().then( errors => setErrors(errors))
-        // }
+          else{
+            res.json().then( errors => setErrors(errors))
+        }
     })
     
 }
 
 return (
     <div className="SignUp">
+      {/* <ErrorContext>{errors}</ErrorContext> */}
+      {errors}
       <h2>Login</h2>
       <Form onSubmit={onSubmit}>
       <Form.Group size="large" id="username">

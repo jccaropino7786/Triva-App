@@ -35,7 +35,7 @@ function App() {
   
 
   if(!currentUser) {
-    return login ? <LogIn setLogin={setLogin} setCurrentUser={setCurrentUser} /> : <Signup setLogin={setLogin} setCurrentUser={setCurrentUser} /> 
+    return login ? <LogIn setLogin={setLogin} errors={errors} setErrors={setErrors} setCurrentUser={setCurrentUser} /> : <Signup setLogin={setLogin} setCurrentUser={setCurrentUser} /> 
   }
   return (
     <div>
