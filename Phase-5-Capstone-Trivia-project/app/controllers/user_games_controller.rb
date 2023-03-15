@@ -11,6 +11,7 @@ class UserGamesController < ApplicationController
 
     def create
         new_user_game = @user.user_games.create!(score: 0, game_id: 4)
+        session[:user_game_id] = user_game.id
         render json: new_user_game, status: :created
     end
 

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {Form, Button, Label, Input} from "semantic-ui-react"
 import { useNavigate } from "react-router-dom";
-// import { ErrorContext } from "../context/ErrorContext";
+import { ErrorContext } from "../context/ErrorContext";
 
 function LogIn({setCurrentUser, setLogin, errors, setErrors}){
 
@@ -9,6 +9,7 @@ function LogIn({setCurrentUser, setLogin, errors, setErrors}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
+    const {addError} = useContext(ErrorContext)
 
     function validateForm() {
         return username.length > 0 && password.length > 0;
@@ -34,6 +35,7 @@ function LogIn({setCurrentUser, setLogin, errors, setErrors}){
         } 
           else{
             res.json().then( errors => setErrors(errors))
+            .then(addError)
         }
     })
     
@@ -41,8 +43,7 @@ function LogIn({setCurrentUser, setLogin, errors, setErrors}){
 
 return (
     <div className="SignUp">
-      {/* <ErrorContext>{errors}</ErrorContext> */}
-      {errors}
+      
       <h2>Login</h2>
       <Form onSubmit={onSubmit}>
       <Form.Group size="large" id="username">
