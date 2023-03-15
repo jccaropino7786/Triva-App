@@ -16,9 +16,9 @@ function UserProvider({ children }) {
       if(res.ok){
         res.json().then(user => setUser(user))
       } 
-      // else {
-      //   const error = res.json().then(error = setError(error))
-      // }
+      else {
+        res.json().then(error => alert(error.errors))
+      }
     })
     if (!user)
     {fetchData() } 
@@ -42,13 +42,11 @@ function UserProvider({ children }) {
             res.json().then(setUser)
             .then(()=>navigate("/welcome"))
         } 
-        //   else{
-        //     res.json().then( errors => setErrors(errors))
-        // }
+         else {
+          res.json().then(error => alert(error.errors))
+        }
     })   
   }
-
-
 
 
 

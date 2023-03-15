@@ -33,9 +33,8 @@ function LogIn({setLogin}){
                 navigate("/welcome")
             })
         } 
-          else{
-            res.json().then( errors => (errors))
-            
+        else {
+          res.json().then(error => alert(error.errors))
         }
     })
     

@@ -61,9 +61,9 @@ function Signup({setLogin}){
                 navigate("/welcome")
             })
         } 
-        //   else{
-        //     res.json().then( errors => setErrors(errors))
-        // }
+        else {
+            res.json().then(error => alert(error.errors))
+          }
     })
     
 }
