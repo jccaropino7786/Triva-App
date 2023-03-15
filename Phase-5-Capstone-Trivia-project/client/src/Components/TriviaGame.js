@@ -25,7 +25,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
                     headers: {
                       'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ question: question.question }),
+                    body: JSON.stringify({ question_text: question.question }),
                   })
                   const questionData = await questionResponse.json()
                   
@@ -34,7 +34,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
                     headers: {
                       'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ answer: question.answer }),
+                    body: JSON.stringify({ answer_text: question.correctAnswer }),
                   })
                   const answerData = await answerResponse.json()
                   
@@ -46,7 +46,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
                     body: JSON.stringify({ 
                       question_id: questionData.id,
                       answer_id: answerData.id,
-                      game_id: sessionStorage.getItem('game_id'),
+                      user_game_id: sessionStorage.getItem('user_game_id'),
                     }),
                   })
                   const questionAnswerData = await questionAnswerResponse.json()
