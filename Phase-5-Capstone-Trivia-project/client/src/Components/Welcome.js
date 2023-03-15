@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 
-function Welcome({currentUser, setCurrentUser}) {
+function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
 
     // const [userGame, setUserGame] = useState()
     
@@ -34,7 +34,7 @@ function Welcome({currentUser, setCurrentUser}) {
         .then(response => 
             response.json())
         .then((newData) => setCurrentUser(currentUser => [newData, ...currentUser.user_games]))
-        // .then((newData)=>setUserGame(newData))
+        .then((newData)=>setCurrentUserGame(newData))
         .then(navigate("/trivia_game", {replace:true}))
     }
 

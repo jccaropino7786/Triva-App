@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const TriviaGame = ({currentUser, setCurrentUser, userGame}) => {
-
+const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
+console.log(currentUserGame)
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -22,12 +22,37 @@ const TriviaGame = ({currentUser, setCurrentUser, userGame}) => {
             alert(error)
           }
          }
-        fetchData()  
+        fetchData()
+        //for each question create question.question
+        //create question
+        // fetch("/questions", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(),
+        // })
+        //create answer for each create question.answer
+        // fetch("/answers", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(),
+        // })
+        //create question answer for each question for the current user attach the question and answer that was asked to the user
+        // fetch("/question_answer", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(),
+        // })
+
       },[])
 
       console.log(questions)
 
-    // const answers = [questions[currentQuestion]['correctAnswer']] + questions[currentQuestion]['incorrectAnswers']
     
 
       const answerSubmitted = (e) => {
@@ -38,7 +63,7 @@ const TriviaGame = ({currentUser, setCurrentUser, userGame}) => {
           setScore(currentScore => currentScore + 1);
         }
 
-        fetch(`/user_games/${userGame.id}`, {
+        fetch(`/user_games/${currentUserGame.id}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json'
@@ -91,20 +116,7 @@ const TriviaGame = ({currentUser, setCurrentUser, userGame}) => {
                         <input value={answer} onChange={(e)=>setAnswer(e.target.value)} placeholder='Answer...'></input>
                         <button>Final Answer</button>
                     </form>
-               {/* I need to create code that brings the correct and incorrect answers together */}
-               {/* <ul classname="quiz-ul">
-               
-               {answers.map((option) => {
-                    return (
-                        <li className="quiz-li"
-                            key={option.id}
-                            onClick={() => optionClicked(option.isCorrect)}
-                        >
-                            {option.text}
-                        </li>
-                );
-                    })}  
-               </ul> */}
+              
                
              </div>
              )}
