@@ -1,5 +1,10 @@
 class AnswersController < ApplicationController
 
+
+    def index
+        render json: Answer.all, status: :ok
+    end
+
     def create
         @answer = Answer.new(answer_params)
         if @answer.save

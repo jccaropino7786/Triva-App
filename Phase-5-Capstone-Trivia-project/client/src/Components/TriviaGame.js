@@ -46,7 +46,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame}) => {
                     body: JSON.stringify({ 
                       question_id: questionData.id,
                       answer_id: answerData.id,
-                      user_game_id: sessionStorage.getItem('user_game_id'),
+                      user_game_id: sessionStorage.getItem('user_game.id'),
                     }),
                   })
                   const questionAnswerData = await questionAnswerResponse.json()
