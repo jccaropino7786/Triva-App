@@ -6,12 +6,14 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        @question = Question.new(question_params)
-        if @question.save
-          render json: @question, status: :created
-        else
-          render json: @question.errors, status: :unprocessable_entity
+       
+        params[:questions].each do |q|
+        question = Question.find_or_create_by!(question_text: q[:question])
+        answer = Answer.find_or_create_by!(answer_text: q[:correctAnswer])
+        
+        QuestionAnswer.find_or_create_by!(question:question, answer:answer, user_game: @user.user_games[-1])
         end
+        render json: QuestionAnswer.where(user_game_id: @user.user_games[-1].id) , status: :created
       end
       
       private

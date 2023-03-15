@@ -8,7 +8,7 @@ function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
     // const [userGame, setUserGame] = useState()
     
     //this map doesnt work when I set state on line 34
-    const mappedGames = currentUser.user_games.map((game) => (
+    const mappedGames = currentUser?.user_games?.map((game) => (
         <YourUserGames
         key={game.id}
         gameID={game.id}
@@ -24,20 +24,18 @@ function Welcome({currentUser, setCurrentUser, setCurrentUserGame}) {
 
         fetch("/user_games", {
             method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(),
+            
         })
         .then(response => 
             // console.log(response))
             response.json())
-        .then((newData) => 
+        .then((newData) => {
         // console.log(newData))
-        setCurrentUser(currentUser => [newData, ...currentUser.user_games]))
-        .then((newData)=>setCurrentUserGame(newData))
-        .then(navigate("/trivia_game", {replace:true}))
+        setCurrentUser(currentUser => ({...currentUser, user_games: [...currentUser.user_games, newData] }))
+        setCurrentUserGame(newData)
+    })
+
+        .then(() => navigate("/trivia_game"))
     }
 
 

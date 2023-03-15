@@ -1,6 +1,6 @@
 class UserGamesController < ApplicationController
     before_action :find_user_game, only: [:destroy,:update]
-    before_action :find_user, only: [ :show, :create]
+    
 
     def index
         render json: UserGame.order(score: :desc), status: :ok
@@ -12,12 +12,12 @@ class UserGamesController < ApplicationController
 
     def create
         new_user_game = @user.user_games.create!(score: 0, game_id: 4)
-        session[:user_game_id] = user_game.id
+        session[:user_game_id] = new_user_game.id
         render json: new_user_game, status: :created
     end
 
     def update
-        @user_game.update!(:score)
+        @user_game.update!(score: params[:score])
         render json: @user_game
     end
 

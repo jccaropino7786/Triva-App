@@ -5,14 +5,11 @@ class AnswersController < ApplicationController
         render json: Answer.all, status: :ok
     end
 
-    def create
-        @answer = Answer.new(answer_params)
-        if @answer.save
-          render json: @answer, status: :created
-        else
-          render json: @answer.errors, status: :unprocessable_entity
-        end
-      end
+    # def create
+    #     params[:questions].each do |q|
+    #         question = Question.create!(answer_text: q.question)
+    #     end
+    #   end
       
       private
       

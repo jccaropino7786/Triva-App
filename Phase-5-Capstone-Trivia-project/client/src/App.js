@@ -47,7 +47,7 @@ function App() {
           <Route className="welcome" path="/welcome" element={ <Welcome currentUser={currentUser} setCurrentUser={setCurrentUser} setCurrentUserGame={setCurrentUserGame}/> } />
           <Route className="profile" path="/profile" element={ <UserProfile currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
           <Route className="high_score" path="/high_scores" element={ <HighScoreContainer/> } />
-          <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame currentUserGame={currentUserGame} currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
+          <Route className="trivia_game" path="/trivia_game" element={ <TriviaGame setCurrentUserGame={setCurrentUserGame} currentUserGame={currentUserGame} currentUser={currentUser} setCurrentUser={setCurrentUser}/> } />
           {/* <Route className="login" path="/login" element={ <LogIn setCurrentUser={setCurrentUser} /> }/>
           <Route path="/signup" element={ <Signup setCurrentUser={setCurrentUser} /> }/> */}
         </Routes>

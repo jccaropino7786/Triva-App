@@ -20,7 +20,7 @@ function UserProfile({currentUser, setCurrentUser}){
             email: email,
             username: username
         }
-        debugger
+        // debugger
         fetch(`/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {

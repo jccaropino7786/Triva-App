@@ -6,12 +6,7 @@ class QuestionAnswersController < ApplicationController
 
 
     def create
-        @question_answer = QuestionAnswer.new(question_answer_params)
-        if @question_answer.save
-          render json: @question_answer, status: :created
-        else
-          render json: @question_answer.errors, status: :unprocessable_entity
-        end
+      render json: QuestionAnswer.create!(answer_params), status: :created
       end
     
       private
