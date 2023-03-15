@@ -8,7 +8,7 @@ import UserProfile from './Components/UserProfile';
 import HighScoreContainer from './Components/HighScoreContainer';
 import TriviaGame from './Components/TriviaGame';
 import { useState, useContext } from 'react';
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../src/context/UserContext";
 
 
 function App() {
