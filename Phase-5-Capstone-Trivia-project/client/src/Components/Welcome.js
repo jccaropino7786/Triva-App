@@ -1,12 +1,24 @@
 import YourUserGames from "./YourUserGames"
 import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from 'react'
 
 
-function Welcome({currentUser}) {
+function Welcome({currentUser, setCurrentUser}) {
 
-    const navigate = useNavigate()
-
+    // const [userGame, setUserGame] = useState()
     
+    //this map doesnt work when I set state on line 34
+    const mappedGames = currentUser.user_games.map((game) => (
+        <YourUserGames
+        key={game.id}
+        gameID={game.id}
+        name={game.name}
+        score={game.score}
+        setCurrentUser={setCurrentUser}
+        ></YourUserGames>
+      ))
+    
+      const navigate = useNavigate()
 
     const handleClick = ()=>{
 
@@ -21,9 +33,11 @@ function Welcome({currentUser}) {
         })
         .then(response => 
             response.json())
-
-        navigate("/trivia_game", {replace:true})
+        .then((newData) => setCurrentUser(currentUser => [newData, ...currentUser.user_games]))
+        // .then((newData)=>setUserGame(newData))
+        .then(navigate("/trivia_game", {replace:true}))
     }
+
 
     return(
         <div>
@@ -33,7 +47,7 @@ function Welcome({currentUser}) {
                         Start Trivia Game
                     </button>
                     <h2 className="score2">Your High Scores</h2>
-                    <YourUserGames/> 
+                    {mappedGames} 
                 </div>
         </div>
     )

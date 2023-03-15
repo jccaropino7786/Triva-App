@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-const TriviaGame = () => {
+const TriviaGame = ({currentUser, setCurrentUser, userGame}) => {
 
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([])
     const [answer, setAnswer] = useState("")
+
+    
     
     useEffect(() => {
         const fetchData = async () => {
@@ -14,7 +16,7 @@ const TriviaGame = () => {
             // const resp = await fetch("https://opentdb.com/api.php?amount=2&type=multiple")
             const resp = await fetch("https://the-trivia-api.com/api/questions?limit=3&categories=science,history'")
             const questionsList = await resp.json()
-            console.log(questionsList)
+            // console.log(questionsList)
             setQuestions(questionsList)
           } catch (error) {
             alert(error)
@@ -32,9 +34,30 @@ const TriviaGame = () => {
         e.preventDefault()
         // Increment the score
         if (answer.toLowerCase() === questions[currentQuestion].correctAnswer.toLowerCase()) {
-          setAnswer("")  
+          setAnswer("")
           setScore(currentScore => currentScore + 1);
         }
+
+        fetch(`/user_games/${userGame.id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( score )
+          })
+            .then(response => {
+                console.log(response)
+              
+              if (response.status === 200) {
+                response.json().then(data => {
+                  console.log(data)
+                    //update State
+                })
+              } else {
+                response.json().then(error => alert(error.errors))
+              }
+            })
+            .catch(error => alert(error));
     
         if (currentQuestion + 1 < questions.length) {
           setCurrentQuestion(thisQuestion => thisQuestion + 1);

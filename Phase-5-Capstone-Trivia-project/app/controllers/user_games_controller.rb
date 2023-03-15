@@ -5,6 +5,10 @@ class UserGamesController < ApplicationController
         render json: UserGame.order(score: :desc), status: :ok
     end
 
+    def show
+        render json: @user, status: :ok
+    end
+
     def create
         new_user_game = @user.user_games.create!(score: 0, game_id: 4)
         render json: new_user_game, status: :created
