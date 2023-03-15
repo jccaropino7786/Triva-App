@@ -3,7 +3,7 @@ class UserGamesController < ApplicationController
     
 
     def index
-        render json: UserGame.order(score: :desc), status: :ok
+        render json: UserGame.order(score: :desc).limit(10), status: :ok
     end
 
     def show
