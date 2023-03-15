@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
-const TriviaGame = ({currentUser, setCurrentUser, currentUserGame, setCurrentUserGame}) => {
+const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
+
+    const {user, setUser} = useContext(UserContext)
 
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,7 +57,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame, setCurrentUse
         if (answer.toLowerCase() === questions[currentQuestion].answer.answer_text.toLowerCase()) {
           setAnswer("")
           // debugger
-          fetch(`/user_games/${currentUser.user_games[currentUser.user_games.length -1].id}`, {
+          fetch(`/user_games/${user.user_games[user.user_games.length -1].id}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json'
@@ -68,7 +71,7 @@ const TriviaGame = ({currentUser, setCurrentUser, currentUserGame, setCurrentUse
               response.json().then(data => {
                 console.log(data)
                 setScore(currentScore => currentScore + 1);
-                setCurrentUser(currentUserObj => ({...currentUserObj, user_games: currentUserObj.user_games.map(ug => ug.id === data.id ? data : ug)}))
+                setUser(currentUserObj => ({...currentUserObj, user_games: currentUserObj.user_games.map(ug => ug.id === data.id ? data : ug)}))
                 setCurrentUserGame(data)
               })
             } else {
