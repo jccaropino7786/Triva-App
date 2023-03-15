@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import HighScores from "./HighScores"
 import { useEffect, useState } from "react"
 

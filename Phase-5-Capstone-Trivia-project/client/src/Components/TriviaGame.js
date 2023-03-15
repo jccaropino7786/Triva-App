@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
 const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
@@ -47,7 +47,7 @@ const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
         
       },[])
 
-      console.log(questions)
+      // console.log(questions)
 
     
 
@@ -69,7 +69,7 @@ const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
             
             if (response.status === 200) {
               response.json().then(data => {
-                console.log(data)
+                // console.log(data)
                 setScore(currentScore => currentScore + 1);
                 setUser(currentUserObj => ({...currentUserObj, user_games: currentUserObj.user_games.map(ug => ug.id === data.id ? data : ug)}))
                 setCurrentUserGame(data)
@@ -83,10 +83,13 @@ const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
     
         if (currentQuestion < 9) {
           setCurrentQuestion(thisQuestion => thisQuestion + 1);
+          setAnswer("");
         } else {
           setShowResults(true);
         }
       };
+
+      
 
       if(!currentUserGame){navigate('/welcome')}
       if (questions.length === 0) return <h1>Loading...</h1>
@@ -102,6 +105,7 @@ const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
                <h2>
                {score} out of 10 correct 
                </h2>
+               <button><Link to="/welcome">Return Home</Link></button>
              </div>
              ) : (
              <div className="question-card">
