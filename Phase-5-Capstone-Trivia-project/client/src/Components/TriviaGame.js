@@ -5,15 +5,11 @@ import { UserContext } from '../context/UserContext';
 const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
 
     const {user, setUser} = useContext(UserContext)
-
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([])
     const [answer, setAnswer] = useState("")
-
-    
-
     const navigate = useNavigate()
 
     
@@ -21,7 +17,8 @@ const TriviaGame = ({ currentUserGame, setCurrentUserGame}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-              const resp = await fetch("https://the-trivia-api.com/api/questions?limit=10&categories=science,history'")
+              
+              const resp = await fetch("https://the-trivia-api.com/api/questions?limit=10")
               const questionsList = await resp.json()
               
               const questionResponse = await fetch('/questions', {

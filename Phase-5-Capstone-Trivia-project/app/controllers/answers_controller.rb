@@ -5,11 +5,7 @@ class AnswersController < ApplicationController
         render json: Answer.all, status: :ok
     end
 
-    # def create
-    #     params[:questions].each do |q|
-    #         question = Question.create!(answer_text: q.question)
-    #     end
-    #   end
+  
       
       private
       
